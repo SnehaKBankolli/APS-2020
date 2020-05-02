@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int a[]={1,2,4,8,16,32,64,128,256,512,1024,2048};
+    long long int T;
+    cin>>T;
+    long long int food;
+    
+    for(int i=0;i<T;i++)
+    {
+        cin>>food;
+        //cout<<food<<endl;
+        int count=0;
+        for(int j=11;j>=0;j--)
+        {
+            if(food>0)
+        {
+        
+            if(food>=a[j])
+            {
+                //cout<<"aa\n";
+                food=food-a[j];
+                //cout<<a[j]<<" This is a[j]"<<endl;
+                j++;
+                count++;
+            }
+        }
+        
+       
+        }
+         cout<<count<<endl;
+    }
+	return 0;
+}

@@ -1,0 +1,58 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int main() {
+unsigned long long int T;
+cin>>T;
+while(T--)
+{
+    long long int n;
+    cin>>n;
+	string a,a1;
+	cin>>a;
+    a1=a;
+    long long int p=count(a.begin(),a.end(),'P');
+	long long int flag=0,counter=0;
+	if(float(float(p)/float(n))>=0.75)
+	{
+	    cout<<counter<<endl;
+	    flag=1;
+	}
+	else{
+	    
+	    for(int i=2;i<n-2;i++)
+	    {
+	        if(a1[i]=='A')
+	        {
+	           
+	            if((a[i-1]=='P'||a[i-2]=='P') &&(a[i+1]=='P'||a[i+2]=='P'))
+	            {
+	                counter++;
+	                p++;
+	                //a1[i]='P';
+	                	if(float(float(p)/float(n))>=0.75)
+	                    {
+	                       
+	                        cout<<counter<<endl;
+	                        flag=1;
+	                        break;
+	                   }
+	            }
+	        }
+	    }
+	}
+	if(flag==0)
+	{
+	    cout<<"-1"<<endl;
+	}
+	
+
+}
+
+
+
+	return 0;
+	
+}

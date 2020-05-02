@@ -1,0 +1,23 @@
+T=int(raw_input())
+while T>0:
+    t=list(map(int,raw_input().split()))
+    #print(t[0])
+    #print(t[1])
+    a=t[1]-1
+    if t[0]==1:
+        print(0)
+        T=T-1
+    else:
+        d=t[0]-1
+    
+        an=(a%d)
+        N=1+((a-an)/d)
+      #  print(a,an,N)
+        #print("This is N:")
+        #print(float(N)/2)
+        sum1=(N)/2
+        #print(sum1)
+        sum1=(N*(a+an))/2
+        #print(sum1)
+        print((sum1)00000007)
+        T=T-1

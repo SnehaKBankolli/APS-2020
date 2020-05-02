@@ -1,0 +1,49 @@
+# cook your dish here
+def Parity(n): 
+    parity = 0
+    while n: 
+        parity = ~parity 
+        n = n & (n - 1) 
+    return parity 
+  
+T=int(raw_input())
+while T>0:
+    even=odd=0
+    n=int(raw_input())
+    flag=0
+    t=0
+    p=set([])
+    while n>0:
+          
+          m=int(raw_input())
+          
+          if(len(p.intersection({m}))==0):
+               if(flag==0):
+                  if(Parity(m)==0):
+                    #print t
+                    t=t+1
+                    #print t
+                    even=pow(2,t)-1
+                    odd=0
+                  else:
+                    flag=1
+                    #print "even"
+                    #print flag
+                    odd=pow(2,t)
+                    t=t+1
+                  
+               else:
+                  #print t,"This is t"
+                  odd=pow(2,t)
+                  even=odd-1
+                  t=t+1
+               p1=set([])
+               for i in p :
+                  p1.add(m^i)
+               p1.add(m)
+               p=p.union(p1)
+               #for i in p:
+                #  print i
+          print even,odd    
+          n=n-1          
+    T=T-1     

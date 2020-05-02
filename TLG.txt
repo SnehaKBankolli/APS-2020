@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	
+	long long int T;
+	long long int a=0,b=0,max=0;
+    long long int sum1=0,sum2=0;
+    int player;
+    cin>>T;
+	for(long long int i=0;i<T;i++)
+	{
+	    
+	    cin>>a>>b;
+	    sum1=a+sum1;
+	    sum2=b+sum2;
+	    
+	    //cout<<sum1<<" "<<sum2<<endl;
+	    //cout<<"sum1 - sum2 "<<sum1-sum2<<endl;
+	    //cout<<"sum2-sum1 "<<sum2-sum1<<endl;
+	    
+	           if((sum1-sum2)>=max)
+	           {
+	               player=1;
+	               max=sum1-sum2;
+	           }
+	           
+	           else if((sum2-sum1)>=max){
+	               player=2;
+	               max=sum2-sum1;
+	            }
+	    }
+	
+	
+	cout<<player<<" "<<max<<endl;
+	return 0;
+	
+}

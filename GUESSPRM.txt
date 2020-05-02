@@ -1,0 +1,64 @@
+import sys
+import math
+def maxPrimeFactors (n): 
+    maxPrime=set([])
+     
+    while n % 2 == 0: 
+        maxPrime.add(2)
+        n >>= 1     
+          
+    for i in range(3, int(math.sqrt(n)) + 1, 2): 
+        while n % i == 0: 
+            maxPrime.add(i) 
+            n = n // i 
+      
+    if n > 2: 
+        maxPrime.add(n) 
+      
+    return maxPrime 
+  
+T=int(input())
+while T:
+    p=set([])
+    q=set([])
+    if 1:
+       ten=31625
+       
+       x=pow(ten,2)
+       print(1,ten)
+       sys.stdout.flush()
+       f=int(input())
+       if f==-1:
+           break
+       p=maxPrimeFactors(x-f)
+       #d=max(p)
+       s=list(p)
+       p=set()
+       for i in s:
+           if (ten**2)%i==f:
+               p.add(i)
+       d=max(p)
+       #print(p) 
+       while(1):
+        for i in p:
+            q.add(pow(d,2)%i)
+        if(len(q)==len(p)):
+            #print(q) 
+            break
+        else:
+            q=set([])
+            d=d+1
+       print(1,d)
+       sys.stdout.flush()
+       f=int(input()) 
+       if(f==-1):
+           exit(0)
+       for i in p:
+           if(pow(d,2)%i==f):
+               print(2,i)
+               sys.stdout.flush()
+               break
+       st=input()
+       if st=="No":
+           exit(0)
+    T=T-1

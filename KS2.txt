@@ -1,0 +1,37 @@
+#include<iostream>
+using namespace std;
+unsigned long long int digit_sum(unsigned long long int d)
+{
+    unsigned long long int sum=0,rem=0;
+    while(d)
+    {
+        rem=d;
+        d=d/10;
+        sum=sum+rem;
+    }
+    return sum;
+}
+int main()
+{
+    unsigned long long int T,n,n1,counter,sum=0,ans=0;
+    cin>>T;
+    while(T--)
+    {
+        sum=0;
+        counter=0;
+        cin>>n;
+        sum=digit_sum(n);
+        //cout<<sum<<endl;
+        
+        ans=n*10;
+        for(int i=0;i<=9;i++)
+        {
+            if((sum+i) == 0)
+            {
+                ans=ans+i;
+                cout<<ans<<endl;
+            }
+        }
+    }
+}
+

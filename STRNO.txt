@@ -1,0 +1,55 @@
+#include<iostream>
+#include<vector>
+#include<cmath>
+using namespace std;
+   long long int getKFactors(long long int n, long long int k){
+   long long int i;
+   vector<long long int> vec;
+   while(n % 2 == 0){
+      vec.push_back(2);
+      n = n/2; //reduce n by dividing this by 2
+   }
+   for(i = 3; i <= sqrt(n); i=i+2){ //i will increase by 2, to get only odd numbers
+      while(n % i == 0){
+         n = n/i;
+         vec.push_back(i);
+      }
+   }
+   if(n > 2){
+      vec.push_back(n);
+   }
+   if(vec.size() < k){
+      //cout << "Cannot be represented";
+         return -1;
+   }
+   long long int prod = 1;
+   for (long long int i=k-1; i<vec.size(); i++)
+   prod = prod*vec[i];
+   //cout << prod << endl;
+   return 1;
+}
+
+int main() {
+   
+   long long int T;
+   cin>>T;
+   while(T--){
+   long long int n = 54, k = 3;
+   cin>>n>>k;
+   if(k==1 && n==1)
+   {
+       cout<<0<<endl;
+   }
+   else if(getKFactors(n, k)==1)
+   {
+        cout<<"1"<<endl;   
+   }
+   else{
+       cout<<"0"<<endl;
+   }
+       
+   }
+   return 0;
+}
+
+//https://www.tutorialspolong long int.com/find-if-n-can-be-written-as-product-of-k-numbers-in-cplusplus

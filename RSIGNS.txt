@@ -1,0 +1,70 @@
+#include<iostream>
+#include<map>
+#include<cmath>
+
+using namespace std;
+long long int gcd(long long int a, long long int b); 
+  
+// To compute x raised to power y under modulo m 
+long long int power(long long int x, unsigned long long int y, unsigned long long  int m); 
+  
+// Function to find modular inverse of a under modulo m 
+// Assumption: m is prime 
+unsigned long long int  modInverse(long long int a, unsigned long long int m) 
+{ 
+    long long int g = gcd(a, m); 
+    if (g != 1) 
+        //cout << "Inverse doesn't exist"; 
+        int fgj;
+    else
+    { 
+        // If a and m are relatively prime, then modulo inverse 
+        // is a^(m-2) mode m 
+        return power(a, m-2, m); 
+    } 
+} 
+  
+// To compute x^y under modulo m 
+long long int power(long long int x, unsigned long long int y, unsigned long long int m) 
+{ 
+    if (y == 0) 
+        return 1; 
+    long long int p = power(x, y/2, m) % m; 
+    p = (p * p) % m; 
+  
+    return (y%2 == 0)? p : (x * p) % m; 
+} 
+  
+// Function to return gcd of a and b 
+long long int gcd(long long int a, long long int b) 
+{ 
+    if (a == 0) 
+        return b; 
+    return gcd(b%a, a); 
+} 
+/*void  display(long long int a[10])
+{
+    for(int i=0;i<10;i++)
+    cout<<a[i]<<"\t";
+    cout<<endl;
+}
+
+*/
+
+int main()
+{
+    //map<int,int> a;
+    //a.insert(pair<int,int>(1,2));
+    
+    unsigned long long int T;
+    cin>>T;
+    while(T--)
+    {
+            
+           unsigned long long int k;
+           cin>>k;
+           cout<<((power(2,(k-1),1000000007))*10)00000007<<endl;      
+            
+    }
+    
+}

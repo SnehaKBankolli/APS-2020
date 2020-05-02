@@ -1,0 +1,41 @@
+# cook your dish here
+z=[int(o) for o in input().split()]
+T=z[0]
+n=z[1]
+
+while T:
+    if n==1:
+        n1=int(input())
+        a=[int(o) for o in input().split()]
+        a1=[int(o) for o in input().split()]
+        
+        a.sort()
+        a1.sort()
+        
+        l=set()
+        l.add(a[0])
+        while a!=[]:
+            
+          
+            #print(l)
+            if(a1[0]<=a[0] or (not(a[0] in l))):
+                break
+            
+            
+            l.add(a[0])
+            l.add(a1[0])
+           
+            del(a[0])
+            del(a1[0])
+        l.clear()
+        if(a==[] and a1==[]):
+            print("YES")
+        
+        else:
+            print("NO")
+        
+        
+    
+    else:
+        print("YES")
+    T=T-1

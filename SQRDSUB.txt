@@ -1,0 +1,72 @@
+#include<iostream>
+#include<vector>
+#include<cmath>
+using namespace std;
+
+int main() {
+   
+   long long int T;
+   cin>>T;
+   while(T--){
+   long long int n,temp,ans;
+   cin>>n;
+   vector<long long int> a,v,prev,next;
+   for(long long int i=0;i<n;i++)
+   {
+       cin>>temp;
+       a.push_back(abs(temp));
+       v.push_back(abs(temp%4));
+       prev.push_back(-1);
+       next.push_back(n);
+   }
+   
+   ans=n*(n+1)/2;
+   prev[0]=-1;
+   for(long long int i=1;i<n;i++)
+   {
+       if(v[i-1]%2==0)
+       {
+           prev[i]=i-1;
+       }
+       else{
+           prev[i]=prev[i-1];
+       }
+   }
+   
+   next[n-1]=n;
+   for(long long int i=n-2;i>=0;i--)
+   {
+       if(v[i+1]%2==0)
+       {
+           next[i]=i+1;
+       }
+       else{
+           next[i]=next[i+1];
+       }
+   }
+   
+//   for(auto i:prev)
+//   {
+//       cout<<i<<" ";
+//   }
+    
+//     cout<<endl;
+//   for(auto j:next)
+//   {
+//       cout<<j<<" ";
+//   }
+//   cout<<endl;
+//   }
+
+for(long long int i=0;i<n;i++)
+{
+    if(v[i]==2)
+    {
+        ans=ans-abs((i-prev[i])*(next[i]-i));
+    }
+}
+
+cout<<ans<<endl;
+}
+return 0;
+}

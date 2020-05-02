@@ -1,0 +1,13 @@
+# cook your dish here
+T=int(input())
+while T>0:
+    n=int(input())
+    arr = list(map(float, input().split()))
+    #print(arr)
+    arr2 = list(map(float, input().split()))
+    #print(arr2)
+    d=0
+    for i in range(0,n+1,1):
+        print(d, end=' ')
+    print()
+    T=T-1

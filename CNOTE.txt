@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    long long int T;
+    cin>>T;
+    //cout<<T;
+    while(T--)
+    {
+        //cout<<T<<endl;
+        int flag=0;
+        long long int x,y,k,n;
+        cin>>x>>y>>k>>n;
+        
+        long long int ans=x-y;
+        //cout<<ans<<endl;
+        if(ans<=0)
+        {
+            flag=1;
+            //cout<<LuckyChef<<endl;
+            //continue;
+        }
+        
+        long long int pages,price;
+        while(n--)
+        {
+            cin>>pages>>price;
+            //cout<<pages<<price<<endl;
+            if(pages>=ans && price<=k)
+            {
+               // cout<<LuckyChef<<endl;
+                flag=1;
+                //break;
+            }
+        }
+        
+        
+        if(flag==1)
+        {
+           cout << "LuckyChef"<<endl;
+        }
+        else{
+            cout << "UnluckyChef"<<endl;
+        }
+        //cout<<T<<endl;
+    
+        
+    }
+	return 0;
+}

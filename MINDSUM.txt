@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <math.h>
+#define X 1000000
+long long int min = 0;
+
+long long int digitSum(long long int N)
+{
+    long long int sum=0,rem=0,qou=N;
+    while(qou)
+    {
+        rem = qou;
+        sum = sum + rem; 
+        qou = qou/10;
+    }
+    
+    return sum;
+}
+
+
+
+int main()
+{
+    long long int i=0,j=0,T=0;
+    long long int N=0,D=0;
+    long long int a[X]={0};
+    long long int index=0;
+   //printf("%lld\n", digitSum(21));
+    
+    scanf("%lld\n",&T);
+    for(i=0;i<T;i++)
+    {
+        scanf("%lld%lld",&N,&D);
+        a[1]=N;
+        min=a[1];
+        index=0;
+        for(j=1;j<3000;j++)
+        {
+        
+            
+            a[2*j] = D + a[j];
+            a[(2*j)+1] = digitSum(a[j]);
+            if(a[2*j]<a[2*j+1])
+            {
+              if(min>a[2*j])
+              {
+                  min = a[2*j];
+                  index=2*j;
+              }
+            }
+            
+            else 
+            {
+                if(min>a[2*j+1])
+                {
+                    min=a[2*j+1];
+                    index=2*j+1;
+                }
+            }
+            
+          
+        }
+        if(index>0)
+        index=(log(index)/log(2));
+        else
+        index=0;
+        printf("%lld %lld\n",min,index);
+      
+    }
+    
+}

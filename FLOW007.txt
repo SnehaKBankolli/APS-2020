@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    long long int t;
+    cin>>t;
+    while(t)
+    {
+        long long int num;
+        cin>>num;
+        
+        long long int num2=0;
+        long long int temp=num,temp2=temp;
+        
+        //temp=num2;
+        
+        while(temp!=0)
+        {
+            temp2=temp;
+            //cout<<temp2;
+            num2=num2*10+temp2;
+            temp=temp/10;
+        }
+        cout<<num2<<endl;;
+        t--;
+    }
+	return 0;
+}

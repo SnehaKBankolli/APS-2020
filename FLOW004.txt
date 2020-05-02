@@ -1,0 +1,22 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+	
+	long long int T;
+	cin>>T;
+	for(long long int i=0;i<T;i++)
+	{
+	    string a;
+	    cin>>a;
+	    int first;
+	    int last;
+	    first=a[0]-'0';
+	    last=stoi(a);
+	    cout<<first+last<<endl;
+	    
+	}
+	
+	return 0;
+}

@@ -1,0 +1,61 @@
+#include<stdio.h>
+//#define N 1000000
+
+
+int main()
+{
+    long long int i=0,T=0;
+    scanf("%lld",&T);
+    for(i=0;i<T;i++)
+    {   
+        
+        //long long int a[N]=0;
+        long long int a,b;
+        long long int N,i;
+        
+        scanf("%lld%lld%lld",&N,&a,&b);
+        
+        long long int count_a=0;
+        long long int count_b=0;
+        long long int count_c=0;
+       
+        
+        long long int temp;
+        for(i=0;i<N;i++)
+        {
+            
+            
+            scanf("%lld",&temp);
+            
+            if(temp%a==0 && temp%b==0)
+            {
+                count_c++;
+            }
+            else if(temp%a==0)
+            {
+                count_a++;
+                
+            }
+            
+            else if(temp%b==0)
+            {
+                count_b++;
+            }
+        }
+        
+        if(count_c>=1)
+        {
+            count_a++;
+        }
+        if(count_a>=count_b)
+        {
+            
+            printf("BOB\n");
+        }
+        
+        else
+        {
+            printf("ALICE\n");
+        }
+    }
+}

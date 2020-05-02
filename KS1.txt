@@ -1,0 +1,42 @@
+T=int(raw_input())
+while T>0:
+    sum=0
+    count=0
+    count1=0
+    n=int(raw_input())
+    t=list(map(int,raw_input().split()))
+    t.insert(0,0)
+    d={0:[]}
+    s=0
+    
+    for i in range(0,n+1):
+        p=t[i]
+        s=s^p
+        q=0
+        if s in d:
+            l=d[s]
+            l.append(i)
+            d[s]=l
+        else:
+            l=[i]
+            d[s]=l
+  
+    for i in d:
+        p=len(d[i])
+        if p>=2:
+            r=d[i]
+            x=len(r)
+            #print("x:",x) 
+            for j in range(x - 1, -1, -1): 
+                sum += j*r[j] - (x-1-j) * r[j] 
+            count=count+((x*x)-x)/2
+            #print(count)
+    #print(count1)
+    print(sum-count)                
+                    
+        
+                
+                
+            
+    #print(d)
+    T=T-1  

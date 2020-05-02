@@ -1,0 +1,29 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int T;
+	cin>>T;
+	while(T--)
+	{
+	    long long int n,c;
+	    cin>>n>>c;
+	    vector<int> v;
+	    int temp;
+	    long long int sum=0;
+	    while(n--)
+	    {
+	        cin>>temp;
+	        sum=sum+temp;
+	    }
+	    if(sum>c)
+	   cout<<"No"<<endl;
+	    else{
+	         cout<<"Yes"<<endl;
+	        
+	    }
+	}
+	return 0;
+}

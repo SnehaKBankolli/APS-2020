@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+long long int getGCD(long long int a,long long int b)
+{
+ 
+    while (a != b) { 
+        if (a > b)         
+            a = a - b;         
+        else        
+            b = b - a;         
+    } 
+    return a; 
+ 
+}
+
+int main() {
+	
+	int testcase;
+	cin >> testcase;
+	while(testcase--)
+    {
+        long long int first,second;
+        cin >> first >> second;
+        
+        long long int gcd=getGCD(first,second);
+        long long int lcm=(first*second)/gcd;
+        cout<<gcd<<" "<<lcm<<endl;
+    }	
+    	
+	
+	return 0;
+}

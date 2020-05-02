@@ -1,0 +1,57 @@
+def change(x,delta):
+    while x<=n:
+        fenwick[x]+=delta
+        x+=x&-x
+def getsum(x):
+    s=0
+    while x>0:
+        s+=fenwick[x]
+        x-=x&-x
+    return s
+def change1(x,delta):
+    while x<=n:
+        fenwick1[x]+=delta
+        x+=x&-x
+def getsum1(x):
+    s=0
+    while x>0:
+        s+=fenwick1[x]
+        x-=x&-x
+    return s
+# print("bahar")
+for _ in range(int(input())):
+    # print("andar")
+    m,q=map(int,input().split())
+    a=[int(o) for o in input().split()]
+    # print(a)
+    a1=[]
+    a2=[]
+    fenwick=[0]*(150212)
+    fenwick1=[0]*(150212)
+    n=150212    
+    for i in range(m-1):
+        a1.append([min(a[i],a[i+1]),i+1])
+        a2.append([max(a[i],a[i+1]),i+1])
+    a1=sorted(a1)
+    a2=sorted(a2)
+    qu=[]
+    for i in range(q):
+        u,v,w=map(int,input().split())
+        qu.append([w,u,v-1,i])
+    qu.sort()
+    # print(qu)
+    i=0
+    j=0
+    ans=[0]*q
+    for u in range(q):
+        while j<m-1 and a2[j][0]<qu[u][0]:
+            change1(a2[j][1],1)
+            j+=1
+        ans2=(getsum1(qu[u][2])-getsum1(qu[u][1]-1))
+        while i<m-1 and a1[i][0]<=qu[u][0]:
+            change(a1[i][1],1)
+            i+=1
+        ans1=(getsum(qu[u][2])-getsum(qu[u][1]-1))
+        ans[qu[u][3]]=ans1-ans2
+    for i in ans:
+        print(i)

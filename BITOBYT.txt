@@ -1,0 +1,49 @@
+#include<stdio.h>
+
+int main()
+{
+    long long int i=0,T=0,seconds=0;
+    long long int bit=0,nibble=0,byte=0;
+    scanf("%lld",&T);
+    for(i=0;i<T;i++)
+    {
+        bit=1,nibble=0,byte=0;
+        scanf("%lld",&seconds);
+        while(seconds>0)
+        {
+            seconds=seconds-2;
+           // printf("?IT\n",seconds);
+           // printf("%d!!!@@@\n",seconds);
+            if(seconds>0)
+            {
+        
+                nibble=nibble+bit;
+                bit=0;
+                seconds=seconds-8;
+                //printf("%dscon\n",seconds);
+            }
+            
+             if(seconds>0)
+            {
+               byte=byte+nibble;
+               nibble=0;
+                seconds=seconds-16;
+               // printf("%d \n",seconds);
+            }
+            
+             if(seconds>0)
+            {
+                //printf("%d..byte\n",byte);
+                 bit=2*byte;
+                 //printf("%d. %d.bit..byte\n",bit,byte);
+                 byte=0;  
+                 //printf("%d seconds\n",seconds);
+            }
+            
+        
+        }
+        
+        printf("%lld %lld %lld\n",bit,nibble,byte);
+        
+    }
+}

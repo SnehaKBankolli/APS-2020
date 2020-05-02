@@ -1,0 +1,21 @@
+#include <bits/stdc++.h> 
+using namespace std; 
+#define int long long int
+main() 
+{ 
+    unsigned int T;
+    cin>>T;
+    while(T--)
+    {
+    string str;
+    int c;
+  
+    cin>>c;
+    cin>>str;
+    
+    //cout<<str<<endl;
+    int x=count(str.begin(), str.end(),'1');
+    cout<<x*(x+1)/2<<endl;
+    }
+    return 0; 
+}

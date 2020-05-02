@@ -1,0 +1,57 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+#define lli long long int
+int powermod(lli x, unsigned lli y, lli p){lli res = 1;x = x % p;while (y > 0){if (y & 1){res = (res*x) % p;}y = y>>1; x = (x*x) % p;}return res;}
+int main() {
+// your code goes here
+long long int T;
+cin>>T;
+long long int l=0;
+       long long int ub=0;
+       long long int uc=0;
+       long long int uper=0,n;
+while(T--)
+{
+//    long long int n;
+   cin>>n;
+   string s;
+   cin>>s;
+   
+   lli v=0;
+   uper=0;
+   
+   for(auto i=0;i<n;i++)
+   {
+       l=0;
+       ub=0;
+       uc=0;
+       
+       for(auto j=i;j<n;j++)
+       {
+           if(s[j]=='(')
+           {
+               ub+=1;
+           }
+           else if(s[j]==')')
+           {
+               uc+=1;
+           }
+           if(uc>ub && s[j]==')')
+           {
+               l+=1;
+               uc-=1;
+               ub+=1;
+             
+           }
+            v+=l;
+            uper=uper+1;  
+       }
+       
+       
+   }
+    cout<<(v*powermod(uper,1000000005,1000000007))00000007<<endl;
+}
+return 0;
+
+}

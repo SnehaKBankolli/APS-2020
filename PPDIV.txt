@@ -1,0 +1,170 @@
+#isqrt taken from internet
+from __future__ import division, print_function
+import bisect
+import math
+import heapq
+import itertools
+import sys
+from collections import deque
+from atexit import register
+from collections import Counter
+from functools import reduce
+sys.setrecursionlimit(10000000)
+if sys.version_info[0] < 3:
+    from io import BytesIO as stream
+else:
+    from io import StringIO as stream
+ 
+ 
+if sys.version_info[0] < 3:
+    class dict(dict):
+        """dict() -> new empty dictionary"""
+        def items(self):
+            """D.items() -> a set-like object providing a view on D's items"""
+            return dict.iteritems(self)
+ 
+        def keys(self):
+            """D.keys() -> a set-like object providing a view on D's keys"""
+            return dict.iterkeys(self)
+ 
+        def values(self):
+            """D.values() -> an object providing a view on D's values"""
+            return dict.itervalues(self)
+ 
+    input = raw_input
+    range = xrange
+ 
+    filter = itertools.ifilter
+    map = itertools.imap
+    zip = itertools.izip
+ 
+ 
+def sync_with_stdio(sync=True):
+    """Set whether the standard Python streams are allowed to buffer their I/O.
+ 
+    Args:
+        sync (bool, optional): The new synchronization setting.
+ 
+    """
+    global input, flush
+ 
+    if sync:
+        flush = sys.stdout.flush
+    else:
+        sys.stdin = stream(sys.stdin.read())
+        input = lambda: sys.stdin.readline().rstrip('\r\n')
+ 
+        sys.stdout = stream()
+        register(lambda: sys.__stdout__.write(sys.stdout.getvalue()))
+def isqrt(n):  
+  
+        if not isinstance(n, int):  
+            raise TypeError('an int is required')  
+        if n < 0:  
+            raise ValueError('math domain error')  
+      
+        guess = (n >> n.bit_length() // 2) + 1  
+        result = (guess + n // guess) // 2  
+        while abs(result - guess) > 1:  
+            guess = result  
+            result = (guess + n // guess) // 2  
+        while result * result > n:  
+            result -= 1  
+        return result
+def ssq(n):
+    global invm6
+    sum2=((n*(n+1)00000007)00000007*(2*n+1)00000007)00000007
+    # sum2=modDivide(sum2,6,1000000007)
+    sum2=(sum2*invm6)
+    return int(sum200000007)
+   
+def powerNumbers():
+    s=set()
+    #j=2
+    for i in range(1,1000000):
+        for j in range(2,1000000):
+            p=pow(i,j)
+            if p>1000000000000:
+                break
+            s.add(p)
+    s1=set()
+    for i in range(2,1000001):
+        t=pow(i,2)
+        while t<1000000000000000001:
+            if t>1000000000001:
+                l=int(math.sqrt(t))
+                if pow(l,2)!=t:
+                    s.add(t)
+            else:
+                s.add(t)
+            t*=i
+                   
+    #print(s)
+    l1=list(s)
+    l1.sort()
+    #print(l)
+    return l1
+   
+ 
+def modInverse(b,m):
+    g = math.gcd(b, m)  
+    if (g != 1):
+        # print("Inverse doesn't exist")  
+        return -1
+    else:  
+        # If b and m are relatively prime,  
+        # then modulo inverse is b^(m-2) mode m  
+        return pow(b, m - 2, m)
+ 
+ 
+# Function to compute a/b under modulo m  
+def modDivide(a,b,m):
+    a = a % m
+    inv = modInverse(b,m)
+    return (inv*a) % m
+ 
+invm6=pow(6,1000000005,1000000007)
+# This code is Contributed by HarendraSingh22
+def main():
+    T=int(input())
+    r=powerNumbers()
+    while T:
+      n=int(input())
+      sum1=0
+      for i in r:
+          if(i>n):
+              break
+         
+          #print(math.floor(modDivide(n,i,1000000007))
+          sum1=((i*math.floor(n//i))+sum1)00000007
+          #print(math.floor(n//i))
+          #print(i,sum1)
+      #print("..............")
+      e=2
+      if n>1000000000000:
+        #   print("idhar?")
+          llll=n
+          while llll//e>1000000000000:
+             
+              n1=int(isqrt(llll//(e-1)))
+              n=int(isqrt(int(llll//e)))
+            #   print(n1,n,sum1)
+              sum1=(sum1+((e-1)*(ssq(n1)-ssq(n))00000007)00000007)00000007
+              n=(llll//e)
+              e=e+1
+        #   print(llll//e)
+          if llll//e<=1000000000000:
+            #   n=1000000000000
+              n1=int(isqrt(llll//(e-1)))
+              n=int(1000000)
+            #   print(n1,n)
+              sum1=(sum1+((e-1)*(ssq(n1)-ssq(n))00000007)00000007)00000007
+              n=(llll//e)
+              e=e+1
+             
+      print(sum100000007)
+      T=T-1
+     
+if __name__ == '__main__':
+    sync_with_stdio(False)
+    main()

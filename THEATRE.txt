@@ -1,0 +1,148 @@
+#include <iostream>
+#include<limits.h>
+#include <bits/stdc++.h>
+using namespace std;
+long long int sum3=0; 
+
+vector<string> v;
+void permute(string a, int l, int r)  
+{  
+    // Base case  
+    if (l == r)  
+       {
+           //cout<<a<<endl; 
+           v.push_back(a);
+           
+       }
+    else
+    {  
+        // Permutations made  
+        for (int i = l; i <= r; i++)  
+        {  
+  
+            // Swapping done  
+            swap(a[l], a[i]);  
+  
+            // Recursion called  
+            permute(a, l+1, r);  
+  
+            //backtrack  
+            swap(a[l], a[i]);  
+        }  
+    }  
+}  
+  
+
+int main() {
+	int T;
+	cin>>T;
+	while(T--)
+	{
+	    int n,ti;
+	    char mov;
+	    
+	    cin>>n;
+	    
+	    map<int,int> m,m1,m2,m3;
+	    while(n--)
+	    {
+	        cin>>mov;
+	        cin>>ti;
+	        
+	        if(mov=='A')
+	        m[ti]++;
+	        
+	        else if(mov=='B')
+	        m1[ti]++;
+	        
+	        else if(mov=='C')
+	        m2[ti]++;
+	        
+	        else{
+	        m3[ti]++;          
+	        }
+	    }
+	    
+	    string a="ABCD";
+	  
+	    
+	      string str = "1234";  
+	      int ans=INT_MIN;
+	      map<char,int> aber;
+	      aber['1']=3;
+	      aber['2']=6;
+	      aber['3']=9;
+	      aber['4']=12;
+	      int value;
+          permute(str, 0, str.size()-1); 
+            
+        int sum;
+       
+          for(auto i:v)
+          {
+              
+              //  cout<<m1[aber[i[1]]]<<endl;
+            
+                 vector<int> ve;
+                 int tro=m[aber[i[0]]];
+                ve.push_back(tro);
+                tro=m1[aber[i[1]]];
+                ve.push_back(tro);
+                tro=m2[aber[i[2]]];
+                ve.push_back(tro);
+                tro=m3[aber[i[3]]];
+                ve.push_back(tro);
+                
+               sort(ve.begin(),ve.end(),greater<int>());
+                //  for(auto j:ve)
+                //  {
+                //      cout<<j<<" ";
+                //  }
+                //  cout<<endl;
+                    sum=0;
+                    if(ve[0]==0)
+                    {
+                        sum-=100;
+                    }
+                    else{
+                        sum+=ve[0]*100;
+                    }
+                    
+                     if(ve[1]==0)
+                    {
+                        sum-=100;
+                    }
+                    else{
+                        sum+=ve[1]*75;
+                    }
+                    
+                     if(ve[2]==0)
+                    {
+                        sum-=100;
+                    }
+                    else{
+                        sum+=ve[2]*50;
+                    }
+                    
+                   if(ve[3]==0)
+                    {
+                        sum-=100;
+                    }
+                    else{
+                        sum+=ve[3]*25;
+                    }
+                    
+                    if(sum>ans)
+                    {
+                        ans=sum;
+                    }
+            
+          }
+          cout<<ans<<endl;
+          sum3+=ans;
+          
+}
+cout<<sum3<<endl;	
+	return 0;
+}
+

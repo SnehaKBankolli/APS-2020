@@ -1,0 +1,23 @@
+#include<stdio.h>
+
+int main()
+{
+    long long int i=0,T=0;
+    scanf("%lld",&T);
+    for(i=0;i<T;i++)
+    {
+        long long int N,P;
+        scanf("%lld%lld",&N,&P);
+        if(N<=2)
+        {
+            printf("%lld\n",P*P*P);
+        }
+        
+        else{
+            long long int a=P-(N-1)/2,b=P-N;
+            printf("%lld\n",(a*a)+(a*b)+(b*b));
+            
+        }
+            
+    }
+}

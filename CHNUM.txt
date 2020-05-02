@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    long long int T;
+        cin>>T;
+    for(long long int i=0;i<T;i++)
+    {
+        long long int num;
+        long long int positive=0;
+        long long int negative=0;
+        long long int teams=0;
+        cin>>teams;
+     
+          
+        for(long long int j=0;j<teams;j++)
+        {
+          
+            cin>>num;
+            if(num>=0)
+            {
+                positive++;
+            }
+            else{
+                negative++;
+            }
+       
+            
+        }
+        
+             if(positive==0)
+            {
+                positive=negative;
+            }
+            if(negative==0)
+            {
+                negative=positive;
+            }
+            
+            cout<<positive<<"\t"<<negative<<"\n";
+
+    }
+    	return 0;
+}

@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	
+	long long int T;
+	cin>>T;
+	for(long long int i=0;i<T;i++)
+	{
+    long long int num,sum=0;
+	cin>>num;
+
+	
+	while(num)
+	{
+	    sum=sum+(num);
+	    num=num/10;
+	}
+	cout<<sum<<endl;
+	}
+	return 0;
+}

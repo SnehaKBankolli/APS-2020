@@ -1,0 +1,22 @@
+# cook your dish here
+T=int(raw_input())
+while T>0:
+    n=int(raw_input())
+    t=list(map(int,raw_input().split()))
+    sum1=sum(t)
+    avg1=(float(sum1)/float(len(t)))
+    #print("avg value:",avg1)
+    num=avg1*(n-1)
+    #print("num is: ",num)
+    x=(sum1-num)
+    if x in t:
+        #print("1")
+          #if 1 in t:
+        #print(x)
+        index = t.index(x)+1
+        print(index)
+    else:
+        print("Impossible")
+     
+    
+    T=T-1

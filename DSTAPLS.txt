@@ -1,0 +1,10 @@
+T=int(raw_input())
+while T>0:
+    t=list(map(int,raw_input().split()))
+    temp=t[1]*t[1];
+    #rint(temp)
+    if(t[0]%temp==0):
+        print("NO")
+    else:
+        print("YES")
+    T=T-1

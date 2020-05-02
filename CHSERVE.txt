@@ -1,0 +1,26 @@
+#include<stdio.h>
+
+int main()
+{
+    long long int i=0,sum=0,T,K=0,P1=0,P2=0,complete=0,lastSet=0;
+    scanf("%lld",&T);
+    for(i=0;i<T;i++)
+    {
+        scanf("%lld%lld%lld",&P1,&P2,&K); 
+        sum=P1+P2;
+        complete=sum/K;
+        lastSet=complete%2;
+        
+        if(sum%K==0 && lastSet == 1)
+        printf("COOK\n");
+        if(sum%K!=0 && lastSet == 1)
+        printf("COOK\n");
+        
+          if(sum%K==0 && lastSet == 0)
+        printf("CHEF\n");
+        if(sum%K!=0 && lastSet == 0)
+        printf("CHEF\n");
+        
+        
+    }
+}

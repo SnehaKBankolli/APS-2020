@@ -1,0 +1,15 @@
+# cook your dish here
+T=int(raw_input())
+while T>0:
+    n=int(raw_input())
+    k=int(raw_input())
+    t=k%n
+    h=float(float(n)/2)
+    if(t>h):
+        p=2*(n%t)
+    else:
+        p=2*t
+    if(p>=n):
+        p=p-1
+    print(p)
+    T=T-1
